@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Tushkuna - Administrador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <style>
+        body { background-color: #faf7f5; }
+        .sidebar { background-color: #a26433; min-height: 100vh; }
+        .sidebar a { color: white; text-decoration: none; display: block;
+            padding: 10px 16px; border-radius: 8px; }
+        .sidebar a:hover { background-color: rgba(255,255,255,0.2); }
+        .card-stat { border-left: 5px solid #cd8350; }
+    </style>
+</head>
+<body>
+<div class="d-flex">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar p-4 d-flex flex-column" style="width: 220px;">
+        <div class="text-center mb-4">
+            <h4 class="text-white fw-bold">Tushkuna</h4>
+            <small class="text-white-50">Administrador</small>
+        </div>
+        <nav class="flex-grow-1">
+            <a href="#">Panel Principal</a>
+            <a href="#">Mesas</a>
+            <a href="#">Caja</a>
+            <a href="#">Inventario</a>
+            <a href="#">Cierre Diario</a>
+        </nav>
+        <form th:action="@{/logout}" method="post" class="mt-3">
+            <input type="hidden"
+                   th:name="${_csrf.parameterName}"
+                   th:value="${_csrf.token}"/>
+            <button type="submit"
+                    class="btn btn-danger w-100">
+                Cerrar sesión
+            </button>
+        </form>
+    </div>
+
+    <!-- CONTENIDO -->
+    <main class="flex-grow-1 p-5">
+        <h1 class="fw-bold mb-1" style="color: #a26433;">
+            Panel de Administración
+        </h1>
+        <p class="text-muted mb-4">
+            Bienvenido, <strong th:text="${nombre}"></strong>
+            (<span th:text="${usuario}"></span>)
+        </p>
+
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="card shadow-sm card-stat p-3">
+                    <p class="text-muted mb-1">Pedidos pendientes</p>
+                    <h3 class="fw-bold">--</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm card-stat p-3">
+                    <p class="text-muted mb-1">Ventas del día</p>
+                    <h3 class="fw-bold">S/ --</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm card-stat p-3">
+                    <p class="text-muted mb-1">Stock bajo</p>
+                    <h3 class="fw-bold">--</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm card-stat p-3">
+                    <p class="text-muted mb-1">Mesas ocupadas</p>
+                    <h3 class="fw-bold">--</h3>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</div>
+</body>
+</html>
