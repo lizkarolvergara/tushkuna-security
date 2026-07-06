@@ -18,9 +18,7 @@
         <span class="navbar-brand fw-bold text-white">Tushkuna</span>
         <div class="ms-auto">
             <form th:action="@{/logout}" method="post" class="d-inline">
-                <input type="hidden"
-                       th:name="${_csrf.parameterName}"
-                       th:value="${_csrf.token}"/>
+
                 <button type="submit" class="btn btn-light btn-sm">
                     Cerrar sesión
                 </button>

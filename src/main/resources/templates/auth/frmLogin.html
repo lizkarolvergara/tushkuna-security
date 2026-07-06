@@ -34,9 +34,7 @@
                     <form th:action="@{/auth/login}" method="post"
                           th:object="${form}">
 
-                        <input type="hidden"
-                               th:name="${_csrf.parameterName}"
-                               th:value="${_csrf.token}"/>
+
 
                         <!-- Usuario -->
                         <div class="mb-3">

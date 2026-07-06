@@ -33,6 +33,7 @@ public class AuthController {
     @Value("${recaptcha.site-key}")
     private String recaptchaSiteKey;
 
+
     // GET /auth/login
     @GetMapping("/login")
     public String login(Model model,
@@ -45,6 +46,11 @@ public class AuthController {
         if (error != null)
             model.addAttribute("errorMsg", "Usuario o contraseña incorrectos");
         return "auth/frmLogin";
+    }
+
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/auth/login";
     }
 
     // POST /auth/login
