@@ -29,13 +29,13 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/",
                                 "/auth/login",
-                                "/auth/registrar",
-                                "/auth/guardarUsuario",
                                 "/resources/**",
                                 "/static/**",
                                 "/styles/**",
                                 "/scripts/**")
                         .permitAll()
+                        .requestMatchers("/auth/registrar", "/auth/guardarUsuario")
+                        .hasAuthority("ROLE_ADMIN")
                         .requestMatchers("/tushkuna/admin/**").hasAuthority("ROLE_ADMIN")
                         .requestMatchers("/tushkuna/mozo/**").hasAuthority("ROLE_MOZO")
                         .requestMatchers("/tushkuna/cocina/**").hasAuthority("ROLE_COCINA")
